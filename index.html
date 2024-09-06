@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--Created by Tivotal-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website with Login Form - Tailwind CSS</title>
+
+    <!--font awesome(for icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <!--Tailwind CSS-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      @layer utilities {
+        .body-bg {
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(bg.jpg);
+          background-size: cover;
+          background-position: center;
+        }
+        .nav-link::before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 3px;
+          background: #1e3aba;
+          left: 0;
+          bottom: -5px;
+          border-radius: 5px;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: 0.5s;
+        }
+
+        .nav-link:hover:before {
+          transform: scaleX(1);
+        }
+
+        .form-bg {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-[100vh] body-bg text-white flex items-center justify-center"
+  >
+    <header class="fixed top-0 left-0 w-full">
+      <div class="container mx-auto flex px-20 py-12 flex-row items-center">
+        <a href="#" class="title-font font-bold">
+          <div class="ml-3 text-3xl">
+            my<span class="text-blue-700">Logo</span>
+          </div>
+        </a>
+
+        <nav class="ml-auto flex items-center text-xl font-semibold">
+          <a
+            href="#"
+            class="relative mr-12 hover:text-blue-900 duration-500 nav-link"
+            >Home</a
+          >
+          <a
+            href="#"
+            class="relative mr-12 hover:text-blue-900 duration-500 nav-link"
+            >Services</a
+          >
+          <a
+            href="#"
+            class="relative mr-12 hover:text-blue-900 duration-500 nav-link"
+            >About</a
+          >
+          <a
+            href="#"
+            class="relative mr-12 hover:text-blue-900 duration-500 nav-link"
+            >Contact</a
+          >
+        </nav>
+
+        <button
+          class="login-btn bg-blue-500 border-0 py-3 px-10 focus:outline-none hover:bg-blue-800 rounded text-xl font-semibold duration-500"
+        >
+          Login
+        </button>
+      </div>
+    </header>
+
+    <div
+      class="form-wrapper translate-y-[-100%] scale-0 duration-500 relative w-[450px] min-h-[450px] form-bg backdrop-blur-lg rounded-xl overflow-hidden flex flex-col items-center justify-center"
+    >
+      <a
+        href="#"
+        class="login-btn text-white bg-blue-500 absolute right-0 top-0 w-10 h-10 flex items-center justify-center rounded-bl-lg text-xl"
+      >
+        <i class="fas fa-times"></i>
+      </a>
+
+      <div class="w-[100%] p-10 text-center">
+        <div class="mb-10 text-blue-500 text-3xl font-bold">
+          <h1 class="login">Login</h1>
+          <h1 class="signup hidden">Signup</h1>
+        </div>
+
+        <form action="#">
+          <div
+            class="relative w-100 h-[50px] mt-7 border-2 border-gray-500 rounded-lg signup hidden"
+          >
+            <input
+              type="text"
+              placeholder="Full Name"
+              required
+              class="w-[100%] h-[100%] bg-transparent focus:outline-0 border-0 pl-3 pr-10 text-xl"
+            />
+            <i
+              class="fas fa-user text-xl absolute right-3 top-3 pointer-events-none"
+            ></i>
+          </div>
+          <div
+            class="relative w-100 h-[50px] mt-7 border-2 border-gray-500 rounded-lg"
+          >
+            <input
+              type="email"
+              placeholder="Email Address"
+              required
+              class="w-[100%] h-[100%] bg-transparent focus:outline-0 border-0 pl-3 pr-10 text-xl"
+            />
+            <i
+              class="fas fa-envelope text-xl absolute right-3 top-3 pointer-events-none"
+            ></i>
+          </div>
+          <div
+            class="relative w-100 h-[50px] mt-7 border-2 border-gray-500 rounded-lg"
+          >
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              class="w-[100%] h-[100%] bg-transparent focus:outline-0 border-0 pl-3 pr-10 text-xl"
+            />
+            <i
+              class="fas fa-lock text-xl absolute right-3 top-3 pointer-events-none"
+            ></i>
+          </div>
+          <div class="options flex justify-between mt-4 text-gray-300 text-sm">
+            <label class="cursor-pointer login"
+              ><input type="checkbox" style="accent-color: #1e3aba" /> Remember
+              Me</label
+            >
+            <a href="#" class="hover:underline login">Forgot Password?</a>
+            <label class="cursor-pointer signup hidden"
+              ><input type="checkbox" style="accent-color: #1e3aba" /> I agree
+              to the terms & conditions</label
+            >
+          </div>
+          <button
+            class="w-[100%] h-[50px] bg-blue-500 mt-8 rounded-lg text-xl font-bold hover:bg-blue-800 duration-500 login"
+          >
+            Login
+          </button>
+          <button
+            class="w-[100%] h-[50px] bg-blue-500 mt-8 rounded-lg text-xl font-bold hover:bg-blue-800 duration-500 signup hidden"
+          >
+            Signup
+          </button>
+          <div class="form-toggle mt-8 text-lg text-gray-300">
+            <p class="login">
+              Don't have an account?
+              <a href="#" class="font-bold text-blue-700 hover:underline"
+                >Signup</a
+              >
+            </p>
+            <p class="signup hidden">
+              Already have an account?
+              <a href="#" class="font-bold text-blue-500 hover:underline"
+                >Login</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let formToggles = document.querySelectorAll(".form-toggle a");
+      let formFields = document.querySelectorAll(".login, .signup");
+
+      formToggles.forEach((link) => {
+        link.addEventListener("click", () => {
+          formFields.forEach((item) => {
+            item.classList.toggle("hidden");
+          });
+        });
+      });
+
+      let loginBtns = document.querySelectorAll(".login-btn");
+      let wrapper = document.querySelector(".form-wrapper");
+
+      loginBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          wrapper.classList.toggle("scale-0");
+          wrapper.classList.toggle("translate-y-[-100%]");
+        });
+      });
+    </script>
+  </body>
+</html>
